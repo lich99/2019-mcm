@@ -38,6 +38,6 @@ def func(w, p):
 
 t = np.arange(100, 200, 0.01) 
 track1 = odeint(func, (0.85), t, hmax=0.001)
-plt.xlabel("P-Pressure  (MPa)")
-plt.ylabel("ρ-Density  (mg/mm³)")
+plt.xlabel("P-Pressure  (MPa)",fontproperties="STSong")
+plt.ylabel("ρ-Density  (mg/mm³)",fontproperties="STSong")
 plt.plot(t,track1) 
