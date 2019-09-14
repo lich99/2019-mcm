@@ -124,3 +124,5 @@ plt.hlines(100, 0, int(test_t/step), colors = "c", linestyles = "dashed")
 plt.hlines(150, 0, int(test_t/step), colors = "c", linestyles = "dashed")
 
 plt.plot(out)
+
+#2019.9.14.8:46
