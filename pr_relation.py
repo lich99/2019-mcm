@@ -35,9 +35,22 @@ def func(w, p):
     
     return np.array([rp])
 
+p1 = np.arange(100, 200, 0.01) 
+r1 = odeint(func, (0.85), p1, hmax=0.001).reshape((10000))
 
-t = np.arange(100, 200, 0.01) 
-track1 = odeint(func, (0.85), t, hmax=0.001)
+p2 = np.arange(100, 0, -0.01) 
+r2 = odeint(func, (0.85), p2, hmax=0.001).reshape((10000))
+
+p2 = p2[::-1]
+r2 = r2[::-1]
+
+p = np.hstack((p2,p1))
+r = np.hstack((r2,r1))
+
 plt.xlabel("P-Pressure  (MPa)",fontproperties="STSong")
 plt.ylabel("ρ-Density  (mg/mm³)",fontproperties="STSong")
-plt.plot(t,track1) 
+
+l1, = plt.plot(p, r, linewidth=1.0) 
+plt.legend(handles=[l1], labels=['ρ-P'], fontsize = 10, loc='lower right')
+
+#plt.savefig(r"ρ-P image.png", dpi = 300)
