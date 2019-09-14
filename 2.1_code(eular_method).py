@@ -144,7 +144,7 @@ t = np.arange(0, time_range, step_length)
 out = []
 w = np.array([0.5, 100])
 
-for i in range (time_range / step_length):
+for i in range (int(time_range / step_length)):
     
     w = func(w, t[i], 0.01)
     out.append(w)
